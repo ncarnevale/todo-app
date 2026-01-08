@@ -1,0 +1,45 @@
+.todoRow {
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.todoItem {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+
+.todoText {
+  flex: 1;
+  margin-right: 8px;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: #888;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+}
+
+.todoCheckbox {
+  flex: 1;
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+}
+
+.deleteButton {
+  margin-left: 16px;
+  padding: 4px 8px;
+  font-size: 14px;
+  background-color: #952626;
+}

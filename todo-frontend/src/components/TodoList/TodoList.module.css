@@ -1,0 +1,23 @@
+.todoList {
+  min-width: 450px;
+  display: flex;
+  flex-direction: column;
+}
+
+.loadingContainer {
+  width: 450px;
+  text-align: center;
+  padding: 100px 0;
+}
+
+.errorMessage {
+  color: #b00020;
+  margin-bottom: 16px;
+}
+
+.emptyMessage {
+  text-align: center;
+  color: #999;
+  margin: 8px;
+  height: 48px;
+}

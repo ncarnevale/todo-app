@@ -1,0 +1,10 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 32px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont;
+}
+
+.title {
+  margin-bottom: 24px;
+}
