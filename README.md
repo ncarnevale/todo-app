@@ -1,3 +1,5 @@
+![screenshot](/screeshot.png?raw=true)
+
 # Fullstack Todo App
 
 This repo contains a simple fullstack To-Do app built with:
