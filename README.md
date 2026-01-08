@@ -1,4 +1,4 @@
-![screenshot](/screeshot.png?raw=true)
+![screenshot](/screenshot.png?raw=true)
 
 # Fullstack Todo App
 
