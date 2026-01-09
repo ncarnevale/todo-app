@@ -69,7 +69,7 @@ todosGroup.MapPost("/", async (
 {
     if (string.IsNullOrWhiteSpace(request.Text))
     {
-        return Results.BadRequest(new { error = "Text is required" });
+        return Results.BadRequest(new ApiError("Text is required"));
     }
 
     var todo = new Todo
@@ -88,7 +88,7 @@ todosGroup.MapPost("/", async (
 })
 .WithName("CreateTodo")
 .Produces<TodoResponse>(StatusCodes.Status201Created)
-.Produces(StatusCodes.Status400BadRequest);
+.Produces<ApiError>(StatusCodes.Status400BadRequest);
 
 todosGroup.MapPut("/{id:int}", async (
     int id,
@@ -99,7 +99,7 @@ todosGroup.MapPut("/{id:int}", async (
 
     if (todo is null)
     {
-        return Results.NotFound(new { error = "Todo not found" });
+        return Results.NotFound(new ApiError("Todo not found"));
     }
 
     todo.IsCompleted = !todo.IsCompleted;
@@ -107,7 +107,9 @@ todosGroup.MapPut("/{id:int}", async (
 
     return Results.Ok(todo.ToResponse());
 })
-.WithName("ToggleTodo");
+.WithName("ToggleTodo")
+.Produces<TodoResponse>(StatusCodes.Status200OK)
+.Produces<ApiError>(StatusCodes.Status404NotFound);
 
 todosGroup.MapDelete("/{id:int}", async (
     int id,
@@ -118,7 +120,7 @@ todosGroup.MapDelete("/{id:int}", async (
 
     if (todo is null)
     {
-        return Results.NotFound(new { error = "Todo not found" });
+        return Results.NotFound(new ApiError("Todo not found"));
     }
 
     db.Todos.Remove(todo);
@@ -126,6 +128,8 @@ todosGroup.MapDelete("/{id:int}", async (
 
     return Results.NoContent();
 })
-.WithName("DeleteTodo");
+.WithName("DeleteTodo")
+.Produces(StatusCodes.Status204NoContent)
+.Produces<ApiError>(StatusCodes.Status404NotFound);
 
 app.Run();

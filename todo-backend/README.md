@@ -47,6 +47,7 @@ dotnet test
 - SQLite + EF Core for persistence while keeping setup simple. In prod, this could be swapped for PostgreSQL or SQL Server with minimal code changes
 - Request & Response DTOs used to decouple API contract from internal models
 - Basic integration test included to validate core API functionality
+- Errors returned using a shared ApiError response type instead of full middleware for simplicity
 
 ## Future Improvements
 
