@@ -60,7 +60,8 @@ todosGroup.MapGet("/", async (TodoDbContext db) =>
 
     return Results.Ok(todos);
 })
-.WithName("GetTodos");
+.WithName("GetTodos")
+.Produces<List<TodoResponse>>(StatusCodes.Status200OK);
 
 todosGroup.MapPost("/", async (
     CreateTodoRequest request,
